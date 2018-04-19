@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>深度克隆</title>
+</head>
+<body>
+ <script type="text/javascript">
+ 	function clone(data){
+ 		ver temp;
+ 		var type = Object.prototype.toString.call(data).slice(8,-1);
+
+ 		if (type === 'Array'){
+ 			temp = [];
+ 			data.map(function(val.k){
+ 				temp.push(clone(val));//递归
+ 			});
+ 			return temp;
+ 		}else if(type === 'Object'){
+ 			temp = {};
+ 			for (var i in data){
+ 				temp[i] = clone(data[i]);
+ 			}
+ 			return temp;
+ 		}else{
+ 			return data;
+ 		}
+
+
+ 	}
+ </script>
+</body>
+</html>
